@@ -9,11 +9,13 @@
       margin: 0;
       font-family: 'Comic Sans MS', 'Poppins', sans-serif;
       background: linear-gradient(135deg, #ffd6e8, #fff6cc);
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     .card {
@@ -21,6 +23,7 @@
       border-radius: 35px;
       padding: 50px;
       width: 520px;
+      max-width: 100%;
       text-align: center;
       box-shadow: 0 25px 60px rgba(0,0,0,0.2);
       z-index: 2;
@@ -45,6 +48,7 @@
     p {
       font-size: 18px;
       color: #444;
+      line-height: 1.6;
     }
 
     button {
@@ -56,6 +60,7 @@
       font-size: 18px;
       border-radius: 40px;
       cursor: pointer;
+      width: auto;
     }
 
     .heart, .rain-text {
@@ -79,6 +84,32 @@
       to {
         transform: translateY(120vh);
         opacity: 0;
+      }
+    }
+
+    /* 📱 MOBILE FIX */
+    @media (max-width: 600px) {
+      .card {
+        padding: 28px 20px;
+        border-radius: 28px;
+      }
+
+      .cat {
+        font-size: 90px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+        font-size: 16px;
+        padding: 14px 20px;
       }
     }
   </style>
@@ -122,5 +153,160 @@
   </script>
 
 </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Please Like Me 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #fff6cc);
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
+    .card {
+      background: white;
+      border-radius: 35px;
+      padding: 50px;
+      width: 520px;
+      max-width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .cat {
+      font-size: 120px;
+      animation: bounce 1.6s infinite;
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    h1 {
+      color: #ff6f91;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 25px;
+      background: #ff6f91;
+      color: white;
+      border: none;
+      padding: 16px 30px;
+      font-size: 18px;
+      border-radius: 40px;
+      cursor: pointer;
+      width: auto;
+    }
+
+    .heart, .rain-text {
+      position: fixed;
+      top: -40px;
+      animation: fall linear forwards;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .heart {
+      font-size: 26px;
+    }
+
+    .rain-text {
+      color: #ff6f91;
+      font-weight: bold;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(120vh);
+        opacity: 0;
+      }
+    }
+
+    /* 📱 MOBILE FIX */
+    @media (max-width: 600px) {
+      .card {
+        padding: 28px 20px;
+        border-radius: 28px;
+      }
+
+      .cat {
+        font-size: 90px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+        font-size: 16px;
+        padding: 14px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="cat">🐱</div>
+    <h1>I'm sorry Ridiii 💗</h1>
+    <p>I didn't mean to piss you off, babe! Ar korbo na emon... Please like me 🥺</p>
+    <button onclick="startRain()">Rain Love 💖</button>
+  </div>
+
+  <script>
+    function createHeart() {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.innerText = '💖';
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.fontSize = (18 + Math.random() * 30) + 'px';
+      h.style.animationDuration = (2 + Math.random() * 3) + 's';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 6000);
+    }
+
+    function createText() {
+      const t = document.createElement('div');
+      t.className = 'rain-text';
+      t.innerText = 'Please Like Me';
+      t.style.left = Math.random() * 100 + 'vw';
+      t.style.fontSize = (14 + Math.random() * 22) + 'px';
+      t.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 6000);
+    }
+
+    function startRain() {
+      setInterval(createHeart, 120);
+      setInterval(createText, 180);
+    }
+  </script>
+
+</body>
 </html>
